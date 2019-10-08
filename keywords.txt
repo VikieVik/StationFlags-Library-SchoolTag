@@ -1,0 +1,6 @@
+StationFlags       KEYWORD1
+setBadRtcFlag      KEYWORD2
+setLowBatteryFlag  KEYWORD2
+printFlagByte      KEYWORD2
+clearFlagByte      KEYWORD2
+
