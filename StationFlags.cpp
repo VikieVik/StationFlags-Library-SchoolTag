@@ -1,7 +1,10 @@
 
 #include "Arduino.h"
 #include "RTClib.h"
+#include "EEPROM.h"
 #include "StationFlags.h"
+
+RTC_DS3231 rtc; // rtc instance created
 
 //constructor
 StationFalgs::StationFlags()
