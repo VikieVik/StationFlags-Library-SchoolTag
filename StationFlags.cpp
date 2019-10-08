@@ -37,7 +37,7 @@ void StationFlags::printFlagByte()
 
 void StationFlags::clearFlagByte()
 {
-    for (int eepromAddress = 0; i < EEPROM.length(); i++)
+    for (int eepromAddress = 0; eepromAddress < EEPROM.length(); eepromAddress++)
     {
         EEPROM.write(eepromAddress, 0);
     }
