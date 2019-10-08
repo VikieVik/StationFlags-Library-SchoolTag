@@ -7,7 +7,7 @@
 RTC_DS3231 rtc; // rtc instance created
 
 //constructor
-StationFalgs::StationFlags()
+StationFlags::StationFlags()
 {
 }
 
