@@ -1,6 +1,6 @@
-# StatioFlag
+# StationFlag
 
-StatioFlag - Library for reading-writing flags and device vitals for SchoolTag stations
+StationFlag - Library for reading-writing flags and device vitals for SchoolTag stations
 Created by Aaron Roller & Vikas Singh
 V 1.0 Oct 8, 2019.
 Released into the public domain.
