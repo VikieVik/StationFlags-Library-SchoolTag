@@ -1,0 +1,6 @@
+{
+    "board": "arduino:avr:pro",
+    "configuration": "cpu=16MHzatmega328",
+    "port": "/dev/cu.SLAB_USBtoUART",
+    "sketch": "examples/test/test.ino"
+}
