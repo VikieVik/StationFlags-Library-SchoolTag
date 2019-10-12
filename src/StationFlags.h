@@ -1,10 +1,12 @@
 /*
   StatioFlag - Library for reading-writing flags and device vitals for SchoolTag stations
+  Intended to be used with SchoolTag remote station arduino source code from
+  https://bitbucket.org/school-tag/school-tag-remote-station-arduino/src/master/
   Created by Aaron Roller & Vikas Singh
   V 1.0  Oct 8, 2019.
   Released into the public domain.
   -----------------------------------------------------------------------
- Dependecy: Arduinos EEPROM.h library to access internal EEPROM storage of arduino
+  Dependecy: Arduinos EEPROM.h library to access internal EEPROM storage of arduino
   1 Byte System flag Map
 
   ----------------------------
