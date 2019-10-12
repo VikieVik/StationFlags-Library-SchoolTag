@@ -7,9 +7,9 @@ Released into the public domain.
 
 ---
 
-Dependecy: Arduinos RTClib.h RTC library for clock DS3231
+Dependecy: Arduinos EEPROM.h library to access internal EEPROM storage of arduino
 
-1 Byte System flag Map
+1 Byte System flag bit Map
 
 ---
 
@@ -17,15 +17,15 @@ Dependecy: Arduinos RTClib.h RTC library for clock DS3231
 
 ---
 
-| 0 | RTC Error |
+| 0 | RTC Com Error |
 
 ---
 
-| 1 | LOW BATTERY |
+| 1 | RTC Power Lost |
 
 ---
 
-| 2 | - |
+| 2 | Low Battery |
 
 ---
 

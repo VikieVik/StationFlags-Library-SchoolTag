@@ -4,18 +4,17 @@
   V 1.0  Oct 8, 2019.
   Released into the public domain.
   -----------------------------------------------------------------------
-  Dependecy: Arduinos RTClib.h  RTC library for clock DS3231
-
+ Dependecy: Arduinos EEPROM.h library to access internal EEPROM storage of arduino
   1 Byte System flag Map
 
   ----------------------------
-  |     8 Byte Flag        |
+  |      8 Byte Flag       |
   ----------------------------
-  | 0 | RTC Error          |
+  | 0 |   RTC Com Error    |
   ----------------------------
-  | 1 | LOW BATTERY        |
+  | 1 |   RTC Power Lost   |
   ----------------------------
-  | 2 |         -          |
+  | 2 |   Low Battery      |
   ----------------------------
   | 3 |         -          |
   ----------------------------
@@ -35,7 +34,7 @@
 #define StationFlags_h
 
 #include "Arduino.h"
-#include "RTClib.h"
+#include "EEPROM.h"
 
 #define FLAG_START_ADDR 0 // 0 to 255
 #define BAT_READ_PIN A0   // user defined analog pin
@@ -44,7 +43,8 @@ class StationFlags
 {
 public:
   StationFlags();
-  void setBadRtcFlag();
+  void setRTCComErrorFlag();
+  void setRTCPowerLostFlag();
   void setLowBatteryFlag();
   void printFlagByte();
   void clearFlagByte();

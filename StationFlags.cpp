@@ -1,22 +1,31 @@
 
 #include "Arduino.h"
-#include "RTClib.h"
 #include "EEPROM.h"
 #include "StationFlags.h"
 
-RTC_DS3231 rtc; // rtc instance created
-
 //constructor
-StationFlags::StationFlags()
+StationFlags::StationFlags() {}
+
+//method that sets RTC communication error flag
+void StationFlags::setRTCComErrorFlag()
 {
+    RTC_DS3231 rtc; // rtc instace created
+
+    if (!rtc.begin())
+    {
+        byte newFlag = (EEPROM.read(FLAG_START_ADDR) | 1); // OR 1 = 00000001 with flag byte
+        EEPROM.write(FLAG_START_ADDR, newFlag);
+    }
 }
 
-//method that sets bad rtc flag
-void StationFlags::setBadRtcFlag()
+//method that sets RTC Power Lost error flag
+void StationFlags::setRTCPowerLostFlag()
 {
-    if (!rtc.begin() || rtc.lostPower())
+    RTC_DS3231 rtc; // rtc instace created
+
+    if (!rtc.lostPower())
     {
-        byte newFlag = (EEPROM.read(FLAG_START_ADDR) | 1); // 1 = 00000001
+        byte newFlag = (EEPROM.read(FLAG_START_ADDR) | 2); // OR 1 = 00000010 with flag byte
         EEPROM.write(FLAG_START_ADDR, newFlag);
     }
 }
@@ -24,9 +33,7 @@ void StationFlags::setBadRtcFlag()
 //method that sets low battery flag
 void StationFlags::setLowBatteryFlag()
 {
-    int sensorValue = analogRead(A0); //read the A0 pin value
-    float voltage = sensorValue * (5.00 / 1023.00) * 2;
-    byte newFlag = (EEPROM.read(FLAG_START_ADDR) | 2); // 2 = 00000010
+    byte newFlag = (EEPROM.read(FLAG_START_ADDR) | 4); // OR 2 = 00000100 with flag byte
     EEPROM.write(FLAG_START_ADDR, newFlag);
 }
 
