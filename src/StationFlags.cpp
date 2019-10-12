@@ -37,9 +37,9 @@ void StationFlags::setLowBatteryFlag()
     EEPROM.write(FLAG_START_ADDR, newFlag);
 }
 
-void StationFlags::printFlagByte()
+byte StationFlags::printFlagByte()
 {
-    Serial.print(EEPROM.read(FLAG_START_ADDR), BIN);
+    return (EEPROM.read(FLAG_START_ADDR), BIN);
 }
 
 void StationFlags::clearFlagByte()
@@ -47,5 +47,6 @@ void StationFlags::clearFlagByte()
     for (int eepromAddress = 0; eepromAddress < EEPROM.length(); eepromAddress++)
     {
         EEPROM.write(eepromAddress, 0);
+        return (EEPROM.read(FLAG_START_ADDR), BIN);
     }
 }

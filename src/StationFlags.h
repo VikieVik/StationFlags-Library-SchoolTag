@@ -46,7 +46,7 @@ public:
   void setRTCComErrorFlag();
   void setRTCPowerLostFlag();
   void setLowBatteryFlag();
-  void printFlagByte();
+  byte printFlagByte();
   void clearFlagByte();
 
 private:
